@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: flask
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: flask
+        tier: backend
+        track: stable
+    spec:
+      containers:
+        - name: flask
+          image: flask:11
+          ports:
+            - name: flask
+              containerPort: 80
